@@ -1,6 +1,7 @@
 def commonBuildSettings: Seq[Def.Setting[_]] = Seq(
   organization := "com.example.large",
-  scalaVersion := "2.10.4",
+  version := "0.1.0-SNAPSHOT",
+  scalaVersion := "2.10.3",
   resolvers ++= Seq(
     "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/",
     "Concurrent Maven Repo" at "http://conjars.org/repo",
@@ -9,31 +10,29 @@ def commonBuildSettings: Seq[Def.Setting[_]] = Seq(
   )
 )
 
-lazy val app = (project in file("app")).
-  settings(commonBuildSettings: _*).
-  dependsOn(mod1, mod2, mod3, mod4, mod5)
+// lazy val app = (project in file("app")).
+//   settings(commonBuildSettings: _*).
+//   dependsOn(mod1, mod2, mod3)
 
-def modularProject(id: String) = Project(id, file(id)).
-  settings(commonBuildSettings: _*).
-  settings(
-    libraryDependencies := Nil
-  ).
-  dependsOn(common) 
+// def modularProject(id: String) = Project(id, file(id)).
+//   settings(commonBuildSettings: _*).
+//   settings(
+//     libraryDependencies := Nil
+//   ).
+//   dependsOn(common) 
 
-lazy val mod1 = modularProject("mod1")
-lazy val mod2 = modularProject("mod2")
-lazy val mod3 = modularProject("mod3")
-lazy val mod4 = modularProject("mod4")
-lazy val mod5 = modularProject("mod5")
+// lazy val mod1 = modularProject("mod1")
+// lazy val mod2 = modularProject("mod2")
+// lazy val mod3 = modularProject("mod3")
 
 lazy val common = (project in file("common")).
   settings(commonBuildSettings: _*).
   settings(
   ).
   dependsOn(util1, util2, util3, biz1, biz2, biz3,
-    lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10,
-    lib11, lib12, lib13, lib14, lib15, lib16, lib17, lib18, lib19, lib20,
-    lib21, lib22, lib23, lib24, lib25, lib26, lib27, lib28, lib29, lib30,
+    lib1, lib2, lib3,
+    lib4, lib5, lib6,
+    lib7, lib8, lib9,
     wrench1, wrench2)
 
 val sprayV = "1.1.1"
@@ -128,13 +127,6 @@ def playLibrary(id: String) = Project(id, file(id)).
 lazy val lib1 = playLibrary("lib1")
 lazy val lib2 = playLibrary("lib2")
 lazy val lib3 = playLibrary("lib3")
-lazy val lib4 = playLibrary("lib4")
-lazy val lib5 = playLibrary("lib5")
-lazy val lib6 = playLibrary("lib6")
-lazy val lib7 = playLibrary("lib7")
-lazy val lib8 = playLibrary("lib8")
-lazy val lib9 = playLibrary("lib9")
-lazy val lib10 = playLibrary("lib10")
 
 val luceneVersion = "4.0.0"
 def luceneLibrary(id: String) = Project(id, file(id)).
@@ -162,16 +154,9 @@ def luceneLibrary(id: String) = Project(id, file(id)).
   ).
   dependsOn(util2)
 
-lazy val lib11 = luceneLibrary("lib11")
-lazy val lib12 = luceneLibrary("lib12")
-lazy val lib13 = luceneLibrary("lib13")
-lazy val lib14 = luceneLibrary("lib14")
-lazy val lib15 = luceneLibrary("lib15")
-lazy val lib16 = luceneLibrary("lib16")
-lazy val lib17 = luceneLibrary("lib17")
-lazy val lib18 = luceneLibrary("lib18")
-lazy val lib19 = luceneLibrary("lib19")
-lazy val lib20 = luceneLibrary("lib20")
+lazy val lib4 = luceneLibrary("lib4")
+lazy val lib5 = luceneLibrary("lib5")
+lazy val lib6 = luceneLibrary("lib6")
 
 val akkaVersion = "2.3.1"
 def akkaLibrary(id: String) = Project(id, file(id)).
@@ -192,16 +177,9 @@ def akkaLibrary(id: String) = Project(id, file(id)).
   ).
   dependsOn(biz1)
 
-lazy val lib21 = akkaLibrary("lib21")
-lazy val lib22 = akkaLibrary("lib22")
-lazy val lib23 = akkaLibrary("lib23")
-lazy val lib24 = akkaLibrary("lib24")
-lazy val lib25 = akkaLibrary("lib25")
-lazy val lib26 = akkaLibrary("lib26")
-lazy val lib27 = akkaLibrary("lib27")
-lazy val lib28 = akkaLibrary("lib28")
-lazy val lib29 = akkaLibrary("lib29")
-lazy val lib30 = akkaLibrary("lib30")
+lazy val lib7 = akkaLibrary("lib7")
+lazy val lib8 = akkaLibrary("lib8")
+lazy val lib9 = akkaLibrary("lib9")
 
 lazy val util1 = (project in file("util1")).
   settings(commonBuildSettings: _*).
