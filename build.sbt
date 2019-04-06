@@ -202,7 +202,6 @@ lazy val util2 = (project in file("util2")).
       "org.codehaus.jackson" % "jackson-mapper-asl" % "1.4.2",
       "commons-lang" % "commons-lang" % "2.6",
       "commons-io" % "commons-io" % "2.2",
-      "org.json" % "json-simple" % "1.1.1",
       "javax.activation" % "activation" % "1.1",
       "javax.servlet" % "javax.servlet-api" % "3.0.1",
       "org.slf4j" % "slf4j-api" % "1.7.5",
